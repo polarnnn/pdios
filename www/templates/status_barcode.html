@@ -1,0 +1,25 @@
+<ion-view title="น้ำยาจากไปรษณีย์">
+  <ion-nav-buttons side="right" class="has-header">
+    <button class="button button-balanced icon No Icon" ng-click="saveimg()"> บันทึก</button>
+  </ion-nav-buttons>
+  <ion-content padding="true" class="has-header" scroll="false">
+    <div class="card">
+      <div class="item item-divider" style="background-color:#00953a;">
+        <h2 style="color:#000000;text-align:center;">กดที่รูปกล้อง เพื่อสแกนบาร์โค้ด</h2>
+      </div>
+      <div class="item item-text-wrap" ng-click="takePicture()">
+        <img ng-show="imgURI === undefined" ng-src="{{imgURI}}" src="img/6vaygc4ESH2nURseqVI2_camera.png" style="display: block; width: 50%; height: auto; margin-left: auto; margin-right: auto;">
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="item item-divider" style="background-color:#00953a;">
+        <h2 style="color:#000000;text-align:center;">ถ่ายภาพใบนำส่งไปรษณีย์(เต็มใบ)</h2>
+      </div>
+      <div class="item item-text-wrap" ng-click="takePicture()">
+        <img ng-show="imgURI === undefined" ng-src="{{imgURI}}" src="img/6vaygc4ESH2nURseqVI2_camera.png" style="display: block; width: 50%; height: auto; margin-left: auto; margin-right: auto;">
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>

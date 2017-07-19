@@ -1,0 +1,67 @@
+<ion-view title="คำนวณอัตราการทำงานของไต" id="egfr">
+  <ion-nav-buttons side="right" class="has-header">
+    <button class="button button-balanced icon No Icon" ng-click="saveEgfr()"> บันทึก</button>
+  </ion-nav-buttons>
+  <ion-content padding="true" class="has-header">
+    <div class="row" 
+    style="justify-content: center;
+    background-color: white;
+    width: 100%;
+    margin: auto;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-right: 0px;
+    padding-left: 0px;">
+  <button class="button-m" ng-class="{'activem': male}" ng-click="activeButton()" type="button"></button> 
+  <button class="button-f" ng-class="{'activef': female}" ng-click="activeButton1()" type="button"></button>     </div>
+
+    <div class="list card">
+      
+      <label class="item item-input">
+          <span class="input-label"><span style="color: red;">* </span>อายุ (ปี)</span>
+          <input type="number">
+        </label>
+      <label class="item item-input">
+          <span class="input-label"><span style="color: red;">* </span>ค่าครีอะตินีนในเลือด</span>
+          <input type="number">
+        </label>
+    </div>
+    <div class="card">
+      <div class="item item-divider" style="background-color: darkred;">
+        <h2 style="text-align: center;color: white;">โปรตีนในปัสสาวะ</h2>
+        <p style="font-size: smaller;text-align: center;color: white;">(ในกรณีไม่ทราบค่า ให้เว้นว่างไว้)</p>
+      </div>
+      <label class="item item-input">
+          <span class="item-text-wrap" style="font-size: smaller">มก./วัน หรือ มก./กรัมครีอะตินิน</span>
+          <input type="number">
+        </label>
+      <div class="item item-divider" style="background-color:white;">
+        <strong><p>ค่าบวก</p></strong>
+        <div class="button-bar bar-positive">
+          <a class="button button-small " style="font-size: xx-smaller">ไม่ทราบ</a>
+          <a class="button button-small " style="font-size: xx-smaller">ไม่มี(0)</a>
+          <a class="button button-small " style="font-size: xx-smaller">เล็กน้อย(TRACE)</a>
+        </div>
+        <div class="button-bar bar-positive" style="margin-top: 2px;">
+          <a class="button button-small " style="font-size: smaller">1+</a>
+          <a class="button button-small " style="font-size: smaller">2+</a>
+          <a class="button button-small " style="font-size: smaller">3+</a>
+          <a class="button button-small " style="font-size: smaller">4+</a>
+        </div>
+
+      </div>
+    </div>
+    <div class="item item-divider" style="background-color: darkred;">
+      <h2 style="text-align: center;color: white;">โปรตีนอัลบูมินในปัสสาวะ</h2>
+      <p style="font-size: smaller;text-align: center;color: white;">(ในกรณีไม่ทราบค่า ให้เว้นว่างไว้)</p>
+    </div>
+    <label class="item item-input">
+          <span class="item-text-wrap" style="font-size: smaller">มก./วัน หรือ มก./กรัมครีอะตินิน</span>
+          <input type="number">
+        </label>
+
+    </div>
+
+
+  </ion-content>
+</ion-view>

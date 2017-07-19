@@ -1,0 +1,13 @@
+<ion-view title="ตั้งค่าการบันทึก" id="diary_set">
+  <ion-content padding="false" class="has-header">
+    <form id="diary_set-form10" class="list">
+      <ion-radio id="diary_set-round" 
+      name="diarysetting" 
+      ng-repeat="item in setchoice" 
+      ng-model="data.diarysetting" 
+      ng-value="item.id"
+      ng-change="setchoiceChange(item)">{{item.value}}</ion-radio>
+    </form>
+    
+  </ion-content>
+</ion-view>

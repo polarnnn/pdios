@@ -1,0 +1,36 @@
+<ion-view title="ลงทะเบียน" id="regis" style="background-color:#FFF1E0;">
+  <ion-nav-buttons side="right" class="has-header">
+    <button class="button button-balanced icon No Icon" ng-click="regis()"> บันทึก</button>
+  </ion-nav-buttons>
+  <ion-content padding="true" class="has-header">
+    <form id="regis-form4" class="list">
+      <label class="item item-input" id="regis-input7">
+        <span class="input-label">ว/ด/ป เกิด</span>
+        <input type="date" placeholder="">
+      </label>
+      <button id="regis-button4" ng-click="forgotBdate()" style="color:#C30000;" class="button button-energized button-block icon ion-android-warning"> กรณีลืมวันเกิด</button>
+      <h4 id="regis-heading1" style="color:#000000;">เพศ</h4>
+    <div class="row" 
+    style="justify-content: center;
+    background-color: white;
+    width: 100%;
+    margin: auto;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-right: 0px;
+    padding-left: 0px;">
+  <button class="button-m" ng-class="{'activem': male}" ng-click="activeButton()" type="button"></button> 
+  <button class="button-f" ng-class="{'activef': female}" ng-click="activeButton1()" type="button"></button>     </div>
+     
+      <div class="spacer" style="width: 300px; height: 25px;"></div>
+      <label class="item item-input" id="regis-input10">
+        <span class="input-label">น้ำหนัก(กก.)</span>
+        <input type="number" placeholder="">
+      </label>
+      <label class="item item-input" id="regis-input11">
+        <span class="input-label">ส่วนสูง(ซม.)</span>
+        <input type="number" placeholder="">
+      </label>
+    </form>
+  </ion-content>
+</ion-view>

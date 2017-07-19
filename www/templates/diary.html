@@ -1,0 +1,24 @@
+<ion-view title="บันทึกประจำวันล้างไต" id="diary">
+  <ion-nav-buttons side="right" class="has-header">
+    <button class="button button-dark icon ion-android-settings" ng-click="diaryset()"> ตั้งค่า</button>
+  </ion-nav-buttons>
+  <ion-content padding="true" class="has-header">
+    <form id="diary-form8" class="list">
+      <label class="item item-input" id="diary-input22">
+        <span class="input-label">บันทึกวันที่</span>
+        <input type="date" placeholder="">
+      </label>
+      <button id="diary-button32" class="button button-balanced button-block" ng-click="savediary()">กดเพื่อบันทึกการล้างไต</button>
+    </form>
+    <form id="diary-form9" class="list" style="background: #e8f4fe">
+      <label class="item item-input item-stacked-label" id="diary-input23">
+        <span class="input-label">น้ำยาล้างไตที่ค้างในร่างกายต่อวัน (มล.)</span>
+        <input type="text" value="" placeholder="" disabled style="background: #e8f4fe;font-size: large;">
+      </label>
+      <label class="item item-input item-stacked-label" id="diary-input24">
+        <span class="input-label">สรุปปริมาตรน้ำค้างในร่างกาย<br>ทั้งหมดต่อวัน (มล.)</span>
+        <input type="text" placeholder="" disabled style="background: #e8f4fe;font-size: large;">
+      </label>
+    </form>
+  </ion-content>
+</ion-view>

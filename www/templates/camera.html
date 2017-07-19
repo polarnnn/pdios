@@ -1,0 +1,17 @@
+<ion-view title="ภาพแผลหรือน้ำยา">
+  <ion-nav-buttons side="right" class="has-header">
+    <button class="button button-balanced icon No Icon" ng-click="saveimg()"> บันทึก</button>
+  </ion-nav-buttons>
+  <ion-content padding="true" class="has-header" >
+    <div ng-click="takePicture()">
+      <img src="img/6vaygc4ESH2nURseqVI2_camera.png" style="display: block; width: 50%; height: auto; margin-left: auto; margin-right: auto;">
+    </div>
+    <h4 style="color:#000000;text-align:center;">กรุณากดรูปกล้องเพื่อถ่ายรูป</h4>
+    <form class="list">
+      <ion-radio name="img">ภาพแผล</ion-radio>
+      <ion-radio name="img">ภาพถุงน้ำยา</ion-radio>
+      <ion-radio name="img">สายน้ำยา</ion-radio>
+      <ion-radio name="img">อื่นๆ</ion-radio>
+    </form>
+  </ion-content>
+</ion-view>
