@@ -1,11 +1,31 @@
 <ion-view title="บันทึกประจำวัน(รอบ)" id="diary_round">
+
   <ion-content padding="true" class="has-header">
-    <h1 id="diary_round-heading4" style="color:#00953A;text-align:center;">xx/xx/xxxx</h1>
-    <ion-list id="diary_round-list11" class="manual-list-fullwidth">
-      <ion-item id="diary_round-list-item35">รอบที่ 1 </ion-item>
-      <ion-item id="diary_round-list-item36">รอบที่ 2 </ion-item>
-      <ion-item id="diary_round-list-item37">รอบที่ 3</ion-item>
+    <h1 id="diary_round-heading4" style="color:#00953A;text-align:center;">{{ currentDate | date: 'dd/MM/yyyy' }}</h1>
+    <ion-list id="diary_round-list11" class="manual-list-fullwidth" 
+    ng-repeat="item in round" name="round" 
+      ng-repeat="item in round" 
+      ng-model="data.round" 
+      ng-value="item.round"
+      ng-change="addItem(item)" 
+      ng-click="addround()">
+      <ion-item id="diary_round-list-item35">รอบที่  In: {{item.in }} | Out: {{ item.out}}</ion-item>
+      
     </ion-list>
-    <button id="diary_round-button35" style="color:#FFFFFF;" class="button button-balanced button-block">กดเพื่อเสร็จสิ้นการบันทึกประจำวัน</button>
+
+    <div class="row" style="justify-content: center">
+      <div class="col-70" style="margin-right: 5px;">
+        <button id="diary_round-button35" ng-click="saveround()" 
+        style="color:#FFFFFF;font-size: small;" class="button button-balanced button button-block">
+    กดเพื่อเสร็จสิ้นการบันทึกประจำวัน
+    </button>
+      </div>
+      <div class="col-30">
+        <button id="diary_round-button35" ng-click="addround()" 
+        style="color:#FFFFFF;font-size: small;" class="button button-balanced button-block">
+    เพิ่มรอบ
+    </button>
+      </div>
+    </div>
   </ion-content>
 </ion-view>

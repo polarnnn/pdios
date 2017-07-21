@@ -13,23 +13,27 @@ angular.module('app.controllers', [])
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
     function ($scope, $stateParams, $state, $ionicPopup, $ionicHistory) {
 
-      $scope.gender = [{
-          id: "1",
-          value: "ชาย",
-          bg: "btn-male",
-          url: "img/male-disabled.png",
-          hover_url: "img/male.png"
-        },
-        {
-          id: "2",
-          value: "หญิง",
-          bg: "btn-female",
-          url: "img/female-disabled.png",
-          hover_url: "img/female.png"
-        }
-      ];
+      // get the id
+      $scope.id = $stateParams.id;
+      console.log("Type Patient:", $scope.id);
 
-      
+      // $scope.gender = [{
+      //     id: "1",
+      //     value: "ชาย",
+      //     bg: "btn-male",
+      //     url: "img/male-disabled.png",
+      //     hover_url: "img/male.png"
+      //   },
+      //   {
+      //     id: "2",
+      //     value: "หญิง",
+      //     bg: "btn-female",
+      //     url: "img/female-disabled.png",
+      //     hover_url: "img/female.png"
+      //   }
+      // ];
+
+
       $scope.male = false;
       $scope.female = false;
       $scope.activeButton = function () {
@@ -114,6 +118,9 @@ angular.module('app.controllers', [])
     // You can include any angular dependencies as parameters for this function
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
     function ($scope, $stateParams, $state, $ionicHistory) {
+      // get the id
+      $scope.id = $stateParams.id;
+      console.log("Type Patient:", $scope.id);
       //no back
       $ionicHistory.nextViewOptions({
         disableBack: true
@@ -122,12 +129,106 @@ angular.module('app.controllers', [])
     }
   ])
 
-  .controller('menuCtrl', ['$scope', '$stateParams', '$ionicHistory', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+  .controller('menuCtrl', ['$scope', '$stateParams', '$ionicHistory','$state', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
     // You can include any angular dependencies as parameters for this function
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
-    function ($scope, $stateParams, $ionicHistory) {
+    function ($scope, $stateParams, $ionicHistory,$state) {
 
+      // get the id
+      $scope.id = $stateParams.id;
+      console.log("Type Patient:", $scope.id);
 
+      $scope.buttonRow = [];
+
+      $scope.allButtons = [{
+          "ref": "heart",
+          "src": "img/dIFJqsiZQ0ayUWSaFu46_S_5628419180894.jpg"
+        },
+        {
+          "ref": "blsugar",
+          "src": "img/FmVYDEiTm2jrUSDTrt8g_bs.png"
+        },
+        {
+          "ref": "egfr",
+          "src": "img/kLoqFvw9Rcijk2lpdaiw_S_5628416637045.jpg"
+        },
+        {
+          "ref": "diary",
+          "src": "img/cCNNksmuTpSvGZSp8zmw_icon_dpd.png",
+           "disable": true
+        },
+        {
+          "ref": "status",
+          "src": "img/jxgVy9wtQq2xx8KB3tWB_status_drug.png",
+           "disable": true
+        }, {
+          "ref": "camera",
+          "src": "img/nCSG6GQvTgmBZNhcYBmj_wound_cam.png",
+           "disable": true
+        }, {
+          "ref": "result",
+          "src": "img/JHqg9gFkQluzaraFVrj4_ckdresult-01.png"
+        }, {
+          "ref": "help",
+          "src": "img/AFHSRosFQGSi4X5VTjyo_howtopng.png"
+        }, {
+          "ref": "null",
+          "src": "" //หารูป transparent
+        }
+      ]
+
+      let currentIndex = 0;
+      for (var index = 0; index < 3; index++) {
+        if (currentIndex >= $scope.allButtons.length) {
+          break;
+        }
+        let a = currentIndex;
+        for (var j = a; j < a + 3; j++) {
+          var element = $scope.allButtons[j];
+          if ($scope.buttonRow[index] == null) $scope.buttonRow[index] = [];
+          if($scope.id<4){
+        if(!element.disable )  $scope.buttonRow[index].push(element);
+
+          }
+        else $scope.buttonRow[index].push(element);
+          console.info(j, currentIndex, element);
+          currentIndex++;
+          if (currentIndex >= $scope.allButtons.length) {
+            break;
+          }
+        }
+
+      }
+
+      $scope.menugo = function(data){
+        console.log(data);
+
+        if(data == "heart"){
+           $state.go('heart');
+        }else if(data == "blsugar"){
+           $state.go('blsugar');
+        }else if(data == "egfr"){
+           $state.go('egfr');
+        }else if(data == "diary"){
+           $state.go('diary');
+        }else if(data == "status"){
+           $state.go('status');
+        }else if(data == "camera"){
+           $state.go('camera');
+        }else if(data == "result"){
+           $state.go('result');
+        }else if(data == "help"){
+           $state.go('help');
+        }
+      
+      }
+
+    } //end function
+  ])
+  .controller('blankCtrl', ['$scope', '$stateParams', '$state', '$ionicPopup', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+    // You can include any angular dependencies as parameters for this function
+    // TIP: Access Route Parameters for your page via $stateParams.parameterName
+    function ($scope, $stateParams, $state, $ionicPopup) {
     }
   ])
 
@@ -137,8 +238,15 @@ angular.module('app.controllers', [])
     function ($scope, $stateParams, $state, $ionicPopup) {
       $scope.saveheart = function () {
         var alertPopup = $ionicPopup.alert({
-          title: 'บันทึกข้อมูล',
-          template: 'เรียบร้อย!'
+          title: 'ผลสรุป',
+          template: 'ผลสรุปค่าความดัน' +
+            '<br>-' +
+            '<br>อัตราการเต้นของหัวใจ' +
+            '<br>-' +
+            '<br>ค่า BMI' +
+            '<br>-' +
+            '<br>กดเพื่ออ่านความรู้เพิ่มเติม' +
+            '<br>กดเพื่ออ่านเรื่องลดเค็มลดโรค'
         });
 
         alertPopup.then(function (res) {
@@ -222,65 +330,131 @@ angular.module('app.controllers', [])
     }
   ])
 
-  .controller('diaryCtrl', ['$scope', '$stateParams', '$state', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+  .controller('diaryCtrl', ['$scope', '$stateParams', '$state', '$ionicPopup', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
     // You can include any angular dependencies as parameters for this function
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
-    function ($scope, $stateParams, $state) {
+    function ($scope, $stateParams, $state, $ionicPopup) {
+
+      // get the diarytype
+      $scope.diarytype = $stateParams.diarytype;
+      console.log("diarytype:", $scope.diarytype);
+
       $scope.diaryset = function () {
         $state.go('diary_set');
       }
       $scope.savediary = function () {
-        $state.go('diary_set');
+        if (!$scope.diarytype) {
+          console.warn("$scope.diarytype not found");
+          var alertPopup = $ionicPopup.alert({
+            title: 'แจ้งเตือน',
+            template: 'ยังไม่ได้ตั้งค่าการบันทึก'
+          });
+
+          alertPopup.then(function (res) {
+            $state.go('diary');
+          });
+
+        } else {
+          if ($scope.diarytype == 1) {
+            $state.go('diary_round');
+          } else if ($scope.diarytype == 2) {
+            $state.go('diary_d_add');
+          }
+        }
       }
+
     }
   ])
 
-  .controller('diarySetCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+  .controller('diarySetCtrl', ['$scope', '$stateParams', '$state', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
     // You can include any angular dependencies as parameters for this function
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
-    function ($scope, $stateParams) {
+    function ($scope, $stateParams, $state) {
       $scope.data = {};
       $scope.setchoice = [{
-          id: "1",
+          diarytype: "1",
           value: "บันทึกน้ำยาล้างไต (ต่อรอบ)"
         },
         {
-          id: "2",
+          diarytype: "2",
           value: "บันทึกน้ำยาล้างไต (ต่อวัน)"
         }
       ];
 
       $scope.setchoiceChange = function (item) {
-        console.log("Selected setchoice, id:", item.id, "value:", item.value);
+        console.log("diarytype:", item.diarytype, "value:", item.value);
+        $state.go('diary', {
+          "diarytype": item.diarytype
+        });
       };
-    }
+    } //end function
   ])
 
-  .controller('diaryRoundCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+  .controller('diaryRoundCtrl', ['$scope', '$stateParams', '$state', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
     // You can include any angular dependencies as parameters for this function
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
-    function ($scope, $stateParams) {
+    function ($scope, $stateParams, $state) {
 
+      $scope.in_vol = $stateParams.in_vol;
+      $scope.out_vol = $stateParams.out_vol;
+      console.info('in:' + $stateParams.in_vol + ' out:' + $stateParams.out_vol);
+      $scope.round = [{ in: [],
+        out: []
+      }];
+      $scope.addItem = function (item) {
 
-    }
+        $scope.round.push(item);
+        $scope.item = {in: [],
+        out: []};
+      };
+      $scope.currentDate = new Date();
+
+      $scope.saveround = function () {
+        $state.go('diary');
+      }
+      $scope.addround = function () {
+        $state.go('diary_r_add');
+      }
+
+    } //end function
   ])
 
-  .controller('diaryDayAddCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+  .controller('diaryDayAddCtrl', ['$scope', '$stateParams', '$ionicPopup', '$state', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
     // You can include any angular dependencies as parameters for this function
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
-    function ($scope, $stateParams) {
+    function ($scope, $stateParams, $ionicPopup, $state) {
+      $scope.currentDate = new Date();
 
+      $scope.saveday = function () {
+        var alertPopup = $ionicPopup.alert({
+          title: 'บันทึกข้อมูล',
+          template: 'เรียบร้อย!'
+        });
 
-    }
+        alertPopup.then(function (res) {
+          $state.go('diary');
+        });
+      }
+    } //end function
   ])
 
-  .controller('diaryRoundAddCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+  .controller('diaryRoundAddCtrl', ['$scope', '$stateParams', '$state', '$ionicHistory', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
     // You can include any angular dependencies as parameters for this function
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
-    function ($scope, $stateParams) {
+    function ($scope, $stateParams, $state, $ionicHistory) {
 
+      $scope.addround = function () {
+        $state.go('diary_round', {
+          in_vol: '2000',
+          out_vol: '2000'
+        });
+      }
+      //no back
+      $ionicHistory.nextViewOptions({
+        historyRoot: false
+      });
 
-    }
+    } //end function
   ])
 
   .controller('statusCtrl', ['$scope', '$stateParams', '$state', '$ionicPopup', '$ionicHistory', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
@@ -337,7 +511,7 @@ angular.module('app.controllers', [])
 
         // An elaborate, custom popup
         var myPopup = $ionicPopup.show({
-          template: '<input type="number" ng-model="data.wifi">',
+          template: '<input type="number" ng-model="data.amtwarn">',
           title: 'จำนวนน้ำยาที่เหลือ(ถุง)',
           //subTitle: 'Please use normal things',
           scope: $scope,
@@ -349,11 +523,10 @@ angular.module('app.controllers', [])
               text: '<b>บันทึก</b>',
               type: 'button-positive',
               onTap: function (e) {
-                if (!$scope.data.wifi) {
-                  //don't allow the user to close unless he enters wifi password
+                if (!$scope.data.amtwarn) {
                   e.preventDefault();
                 } else {
-                  return $scope.data.wifi;
+                  return $scope.data.amtwarn;
                 }
               }
             }
@@ -411,7 +584,7 @@ angular.module('app.controllers', [])
         });
       };
 
-    }
+    } //end function
   ])
 
   .controller('cameraCtrl', ['$scope', '$stateParams', '$ionicPopup', '$state', 'Camera', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller

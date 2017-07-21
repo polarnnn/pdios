@@ -22,7 +22,7 @@ angular.module('app.routes', [])
   })
 
   .state('menu', {
-    url: '/menu',
+    url: '/menu/:id',
     templateUrl: 'templates/menu.html',
     controller: 'menuCtrl'
   })
@@ -46,7 +46,7 @@ angular.module('app.routes', [])
   })
 
   .state('diary', {
-    url: '/diary',
+    url: '/diary/:diarytype',
     templateUrl: 'templates/diary.html',
     controller: 'diaryCtrl'
   })
@@ -58,7 +58,7 @@ angular.module('app.routes', [])
   })
 
   .state('diary_round', {
-    url: '/diary_round',
+    url: '/diary_round/:in_vol/:out_vol',
     templateUrl: 'templates/diary_round.html',
     controller: 'diaryRoundCtrl'
   })

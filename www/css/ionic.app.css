@@ -13253,3 +13253,15 @@ ion-view,
 #blsugar-input21 span{
     width: 80%;
 }
+
+#diary_d_add-input26,#diary_d_add-input26 input{
+    background: #8BC34A;
+    font-size: large;
+    font-weight: bold;
+}
+  
+#diary_d_add-input27,#diary_d_add-input27 input{
+    background: #ef473a;
+    font-size: large;
+    font-weight: bold;
+}
