@@ -129,10 +129,10 @@ angular.module('app.controllers', [])
     }
   ])
 
-  .controller('menuCtrl', ['$scope', '$stateParams', '$ionicHistory','$state', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+  .controller('menuCtrl', ['$scope', '$stateParams', '$ionicHistory', '$state', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
     // You can include any angular dependencies as parameters for this function
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
-    function ($scope, $stateParams, $ionicHistory,$state) {
+    function ($scope, $stateParams, $ionicHistory, $state) {
 
       // get the id
       $scope.id = $stateParams.id;
@@ -155,16 +155,16 @@ angular.module('app.controllers', [])
         {
           "ref": "diary",
           "src": "img/cCNNksmuTpSvGZSp8zmw_icon_dpd.png",
-           "disable": true
+          "disable": true
         },
         {
           "ref": "status",
           "src": "img/jxgVy9wtQq2xx8KB3tWB_status_drug.png",
-           "disable": true
+          "disable": true
         }, {
           "ref": "camera",
           "src": "img/nCSG6GQvTgmBZNhcYBmj_wound_cam.png",
-           "disable": true
+          "disable": true
         }, {
           "ref": "result",
           "src": "img/JHqg9gFkQluzaraFVrj4_ckdresult-01.png"
@@ -186,11 +186,10 @@ angular.module('app.controllers', [])
         for (var j = a; j < a + 3; j++) {
           var element = $scope.allButtons[j];
           if ($scope.buttonRow[index] == null) $scope.buttonRow[index] = [];
-          if($scope.id<4){
-        if(!element.disable )  $scope.buttonRow[index].push(element);
+          if ($scope.id < 4) {
+            if (!element.disable) $scope.buttonRow[index].push(element);
 
-          }
-        else $scope.buttonRow[index].push(element);
+          } else $scope.buttonRow[index].push(element);
           console.info(j, currentIndex, element);
           currentIndex++;
           if (currentIndex >= $scope.allButtons.length) {
@@ -200,27 +199,27 @@ angular.module('app.controllers', [])
 
       }
 
-      $scope.menugo = function(data){
-        console.log(data);
+      $scope.menugo = function (data) {
+        //console.log(data);
 
-        if(data == "heart"){
-           $state.go('heart');
-        }else if(data == "blsugar"){
-           $state.go('blsugar');
-        }else if(data == "egfr"){
-           $state.go('egfr');
-        }else if(data == "diary"){
-           $state.go('diary');
-        }else if(data == "status"){
-           $state.go('status');
-        }else if(data == "camera"){
-           $state.go('camera');
-        }else if(data == "result"){
-           $state.go('result');
-        }else if(data == "help"){
-           $state.go('help');
+        if (data == "heart") {
+          $state.go('heart');
+        } else if (data == "blsugar") {
+          $state.go('blsugar');
+        } else if (data == "egfr") {
+          $state.go('egfr');
+        } else if (data == "diary") {
+          $state.go('diary');
+        } else if (data == "status") {
+          $state.go('status');
+        } else if (data == "camera") {
+          $state.go('camera');
+        } else if (data == "result") {
+          $state.go('result');
+        } else if (data == "help") {
+          $state.go('help');
         }
-      
+
       }
 
     } //end function
@@ -228,8 +227,7 @@ angular.module('app.controllers', [])
   .controller('blankCtrl', ['$scope', '$stateParams', '$state', '$ionicPopup', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
     // You can include any angular dependencies as parameters for this function
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
-    function ($scope, $stateParams, $state, $ionicPopup) {
-    }
+    function ($scope, $stateParams, $state, $ionicPopup) {}
   ])
 
   .controller('heartCtrl', ['$scope', '$stateParams', '$state', '$ionicPopup', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
@@ -404,8 +402,9 @@ angular.module('app.controllers', [])
       $scope.addItem = function (item) {
 
         $scope.round.push(item);
-        $scope.item = {in: [],
-        out: []};
+        $scope.item = { in: [],
+          out: []
+        };
       };
       $scope.currentDate = new Date();
 
@@ -424,6 +423,19 @@ angular.module('app.controllers', [])
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
     function ($scope, $stateParams, $ionicPopup, $state) {
       $scope.currentDate = new Date();
+
+      $scope.hide_loss = function () {
+        $scope.isDisabled = true;
+        if ($scope.loss) {
+          $scope.isDisabled1 = false;
+        }
+      }
+      $scope.hide_profit = function () {
+        $scope.isDisabled1 = true;
+        if ($scope.profit) {
+          $scope.isDisabled = false;
+        }
+      }
 
       $scope.saveday = function () {
         var alertPopup = $ionicPopup.alert({

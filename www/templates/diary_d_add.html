@@ -9,12 +9,12 @@
       <br>
       <label class="item item-input" id="diary_d_add-input26">
         <span class="input-label">+</span>
-        <input type="number" placeholder="">
+        <input type="number" placeholder="" ng-change="hide_loss()" ng-Model="loss" ng-disabled="isDisabled1">
       </label>
       <div class="spacer" style="width: 300px; height: 20px;"></div>
       <label class="item item-input" id="diary_d_add-input27">
         <span class="input-label">-</span>
-        <input type="number" placeholder="">
+        <input type="number" placeholder="" ng-change="hide_profit()" ng-Model="profit" ng-disabled="isDisabled">
       </label>
     </form>
   </ion-content>
