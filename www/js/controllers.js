@@ -240,7 +240,7 @@ angular.module('app.controllers', [])
       //ng-change="myFunc()" 
       // $scope.myFunc = function() {
       //   console.log("$scope.values" , $scope.bpInt);
-      // };
+      // }; 
       $scope.saveheart = function () {
         
         var alertPopup = $ionicPopup.alert({
