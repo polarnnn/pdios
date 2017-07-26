@@ -234,11 +234,19 @@ angular.module('app.controllers', [])
     // You can include any angular dependencies as parameters for this function
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
     function ($scope, $stateParams, $state, $ionicPopup) {
+
+
+      $scope.bpInt =  { "value" : $stateParams.bpInt };//;
+      //ng-change="myFunc()" 
+      // $scope.myFunc = function() {
+      //   console.log("$scope.values" , $scope.bpInt);
+      // };
       $scope.saveheart = function () {
+        
         var alertPopup = $ionicPopup.alert({
           title: 'ผลสรุป',
           template: 'ผลสรุปค่าความดัน' +
-            '<br>-' +
+            '<br> ' + $scope.bpInt.value +
             '<br>อัตราการเต้นของหัวใจ' +
             '<br>-' +
             '<br>ค่า BMI' +
@@ -447,6 +455,8 @@ angular.module('app.controllers', [])
           $state.go('diary');
         });
       }
+
+      
     } //end function
   ])
 
