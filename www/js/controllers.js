@@ -236,21 +236,24 @@ angular.module('app.controllers', [])
     function ($scope, $stateParams, $state, $ionicPopup) {
 
 
-      $scope.bpInt =  { "value" : $stateParams.bpInt };//;
-      //ng-change="myFunc()" 
-      // $scope.myFunc = function() {
-      //   console.log("$scope.values" , $scope.bpInt);
-      // }; 
+      $scope.bpInt =  { "value" : $stateParams.bpInt };
+      $scope.bpLow =  { "value" : $stateParams.bpLow };
+      $scope.hrate =  { "value" : $stateParams.hrate };
+      $scope.weight =  { "value" : $stateParams.weight };
+
+      $scope.water =  { "value" : $stateParams.water };
+      $scope.urine =  { "value" : $stateParams.urine };
+      
       $scope.saveheart = function () {
         
         var alertPopup = $ionicPopup.alert({
           title: 'ผลสรุป',
           template: 'ผลสรุปค่าความดัน' +
-            '<br> ' + $scope.bpInt.value +
+            '<br> ' + $scope.bpInt.value +' '+ $scope.bpLow.value +
             '<br>อัตราการเต้นของหัวใจ' +
-            '<br>-' +
+            '<br> ' + $scope.hrate.value +
             '<br>ค่า BMI' +
-            '<br>-' +
+            '<br> ' + $scope.weight.value +
             '<br>กดเพื่ออ่านความรู้เพิ่มเติม' +
             '<br>กดเพื่ออ่านเรื่องลดเค็มลดโรค'
         });
