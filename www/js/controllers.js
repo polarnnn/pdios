@@ -278,7 +278,7 @@ angular.module('app.controllers', [])
       $scope.saveblsugar = function () {
         var alertPopup = $ionicPopup.alert({
           title: 'บันทึกข้อมูล',
-          template: ' '+ $scope.blsugar.value
+          template: 'ค่าระดับน้ำตาล '+ $scope.blsugar.value
         });
 
         alertPopup.then(function (res) {
