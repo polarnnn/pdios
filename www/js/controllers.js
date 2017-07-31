@@ -235,6 +235,7 @@ angular.module('app.controllers', [])
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
     function ($scope, $stateParams, $state, $ionicPopup) {
 
+      $scope.currentDate = new Date();
 
       $scope.bpInt =  { "value" : $stateParams.bpInt };
       $scope.bpLow =  { "value" : $stateParams.bpLow };
@@ -270,10 +271,14 @@ angular.module('app.controllers', [])
     // You can include any angular dependencies as parameters for this function
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
     function ($scope, $stateParams, $state, $ionicPopup) {
+      $scope.currentDate = new Date();
+
+      $scope.blsugar =  { "value" : $stateParams.blsugar };
+
       $scope.saveblsugar = function () {
         var alertPopup = $ionicPopup.alert({
           title: 'บันทึกข้อมูล',
-          template: 'เรียบร้อย!'
+          template: ' '+ $scope.blsugar.value
         });
 
         alertPopup.then(function (res) {
@@ -334,9 +339,25 @@ angular.module('app.controllers', [])
       }
 
       $scope.saveEgfr = function () {
-        $state.go('menu');
+        $state.go('egfr_result');
       }
     }
+  ])
+
+  .controller('egfrResultCtrl', ['$scope', '$stateParams', '$state', '$ionicHistory', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+    // You can include any angular dependencies as parameters for this function
+    // TIP: Access Route Parameters for your page via $stateParams.parameterName
+    function ($scope, $stateParams, $state, $ionicHistory) {
+
+      $scope.close_egfr = function () {
+        $state.go('menu');
+      }
+      //no back
+      $ionicHistory.nextViewOptions({
+        disableBack: true
+      });
+
+    } //end function
   ])
 
   .controller('diaryCtrl', ['$scope', '$stateParams', '$state', '$ionicPopup', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller

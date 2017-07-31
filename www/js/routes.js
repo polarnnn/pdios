@@ -45,6 +45,12 @@ angular.module('app.routes', [])
     controller: 'egfrCtrl'
   })
 
+  .state('egfr_result', {
+    url: '/egfr_result',
+    templateUrl: 'templates/egfr_result.html',
+    controller: 'egfrResultCtrl'
+  })
+  
   .state('diary', {
     url: '/diary/:diarytype',
     templateUrl: 'templates/diary.html',

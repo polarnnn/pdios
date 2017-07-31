@@ -5,13 +5,13 @@
   <ion-content padding="true" class="has-header">
     <form id="blsugar-form7" class="list">
       <label class="item item-input" id="blsugar-input20">
-        <span class="input-label">บันทึกวันที่</span>
-        <input type="date" placeholder="">
+        <span class="input-label">บันทึกวันที่</span>{{ currentDate | date: 'dd/MM/yyyy' }}
+        <!--<input type="date" placeholder="">-->
       </label>
       <div class="spacer" style="width: 300px; height: 15px;"></div>
       <label class="item item-input item-stacked-label" id="blsugar-input21">
         <span class="input-label">ค่าระดับน้ำตาล (มก./ดล.)</span>
-        <input type="number" placeholder="">
+        <input type="number" ng-model="blsugar.value" placeholder="">
       </label>
       <div class="spacer" style="width: 300px; height: 15px;"></div>
       <ion-radio id="blsugar-radio15">ก่อนอาหารเช้า</ion-radio>
